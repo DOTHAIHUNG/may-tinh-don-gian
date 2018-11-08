@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Calculator</title>
+</head>
+<body>
+<script>
+    function number(num) {
+        document.getElementById("display").value=document.getElementById("display").value + num;
+    }
+    function del() {
+        var xoa = document.getElementById("display").value;
+        document.getElementById("display").value = xoa.substring(0,xoa.length-1);
+    }
+    function AC() {
+        document.getElementById("display").value = "";
+    }
+    function operator(operator) {
+        document.getElementById("display").value = document.getElementById("display").value + operator;
+    }
+    function tinh() {
+        var action = document.getElementById("display").value;
+        if (!action) {
+            document.getElementById("display").value = "";
+        }else {
+            document.getElementById("display").value = eval(action);
+        }
+    }
+</script>
+<h1>Calculator</h1>
+<div class="window">
+    <table >
+        <tr>
+            <input type="text" id="display" placeholder="0"/>
+        </tr>
+        <tr>
+            <td><button type="button" onclick="AC()">AC</button></td>
+            <td><button type="button" onclick="number(')')">)</button></td>
+            <td><button type="button" onclick="number('(')">(</button></td>
+            <td><button type="button" onclick="del() ">DEL</button></td>
+        </tr>
+        <tr>
+            <td><button type="button" onclick="number(7)">7</button></td>
+            <td><button type="button" onclick="number(8)">8</button></td>
+            <td><button type="button" onclick="number(9)">9</button></td>
+            <td><button type="button" onclick="operator('/')">/</button></td>
+        </tr>
+        <tr>
+            <td><button type="button" onclick="number(4)">4</button></td>
+            <td><button type="button" onclick="number(5)">5</button></td>
+            <td><button type="button" onclick="number(6)">6</button></td>
+            <td><button type="button" onclick="operator('*')">x</button></td>
+        </tr>
+        <tr>
+            <td><button type="button" onclick="number(1)">1</button></td>
+            <td><button type="button" onclick="number(2)">2</button></td>
+            <td><button type="button" onclick="number(3)">3</button></td>
+            <td><button type="button" onclick="operator ('-')">-</button></td>
+        </tr>
+        <tr>
+            <td><button type="button" onclick="number(0)">0</button></td>
+            <td><button type="button" onclick="number('.')">.</button></td>
+            <td><button type="button" onclick='tinh();'>=</button></td>
+            <td><button type="button" onclick="operator('+')">+</button></td>
+        </tr>
+    </table>
+</div>
+</body>
+</html>
